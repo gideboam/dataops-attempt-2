@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_db_ex6
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: iotdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  python-app:
+    image: python:3.9
+    container_name: python_generator
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: tail -f /dev/null
+
+volumes:
+  pgdata:

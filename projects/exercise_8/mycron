@@ -1,1 +1,0 @@
-*/10 * * * * /bin/bash /root/iot-app/exercise_8/scripts/pipeline.sh

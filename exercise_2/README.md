@@ -9,5 +9,4 @@
 - Implemented Git branching workflow
 - Pushed all branches to GitHub with tracking
 
-## Learning Outcome:
-Understanding professional Git branching strategy used in team development.
+

@@ -23,5 +23,4 @@ Set up a secure Linux server environment for data engineering work.
 - python3 --version
 - psql --version
 
-## Notes
-This setup ensures a secure and structured environment for running data engineering workloads.
+

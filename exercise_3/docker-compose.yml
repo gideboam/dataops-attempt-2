@@ -1,0 +1,7 @@
+services:
+  sensor-generator:
+    build: .
+    container_name: sensor-generator
+    command: --records 1000
+    volumes:
+      - .:/app

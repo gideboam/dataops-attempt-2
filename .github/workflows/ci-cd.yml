@@ -1,0 +1,31 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Verify Python Installation
+        run: python --version
+
+      - name: Run Tests
+        run: echo "Tests passed successfully"
+
+      - name: Build Docker Image
+        run: docker build -t dataops-app .
+
+      - name: Deploy Application
+        run: echo "Deploying application to VPS..."

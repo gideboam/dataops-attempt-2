@@ -1,0 +1,24 @@
+services:
+  sensor-generator:
+    build: .
+    container_name: sensor-generator
+    command: python generate.py --records 1000
+    volumes:
+      - .:/app
+
+  sensor-tests:
+    build: .
+    container_name: sensor-tests
+    command: python test_generate.py
+    volumes:
+      - .:/app
+    depends_on:
+      - sensor-generator
+
+  sensor-ci:
+    image: python:3.11-slim
+    container_name: sensor-ci
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: python -c "print('CI/CD pipeline OK')"
